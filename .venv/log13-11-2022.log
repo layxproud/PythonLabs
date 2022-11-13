@@ -1,0 +1,5 @@
+|DEBUG    |17:21:30| A DEBUG Message
+|INFO     |17:21:30| An INFO
+|WARNING  |17:21:30| A WARNING
+|ERROR    |17:21:30| An ERROR
+|CRITICAL |17:21:30| A message of CRITICAL severity
