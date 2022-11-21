@@ -1,11 +1,13 @@
 from abc import ABC, abstractmethod
-from math import sin, radians, pi
+from math import pi
+
 
 class Shape(ABC):
     @abstractmethod
     def square():
         pass
-    
+
+
 class Rectangle(Shape):
     __name__ = "Rectangle"
 
@@ -37,11 +39,12 @@ class Circle(Shape):
     def square(self):
         return pi * self.radius ** 2
 
+
 def main():
     shapes = [Rectangle(5, 3), Triangle(4, 5), Circle(7)]
     for shape in shapes:
         print(f"{shape.__name__}'s square = {shape.square()}")
-    
+
+
 if __name__ == "__main__":
     main()
-

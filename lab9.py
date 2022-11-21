@@ -1,5 +1,6 @@
 import time
 
+
 def timer(func):
     def wrapper(*args, **kw):
         start_time = time.time()
@@ -10,11 +11,12 @@ def timer(func):
         return result
     return wrapper
 
+
 def timer_all_methods(cls):
     class NewCls:
         def __init__(self, *args, **kwargs):
             self._obj = cls(*args, **kwargs)
-            
+
         def __getattribute__(self, s):
             try:
                 x = super().__getattribute__(s)
@@ -29,6 +31,7 @@ def timer_all_methods(cls):
                 return attr
     return NewCls
 
+
 @timer_all_methods
 class Squares:
     def gen_list(self, n):
@@ -36,19 +39,20 @@ class Squares:
         for num in range(1, n):
             lst.append(num)
         return lst
-    
-    def squares_for(self, lst:list) -> list:
+
+    def squares_for(self, lst: list) -> list:
         for i in range(len(lst)):
             lst[i] **= 2
         return lst
 
-    def squares_list_comprehenshion(self, lst:list) -> list:
+    def squares_list_comprehenshion(self, lst: list) -> list:
         lst = [i ** 2 for i in lst]
         return lst
-    
-    def squares_map(self, lst:list) -> list:
+
+    def squares_map(self, lst: list) -> list:
         lst = list(map(lambda x: x**2, lst))
         return lst
+
 
 def main():
     f = Squares()
@@ -56,7 +60,7 @@ def main():
     f.squares_for(lst)
     f.squares_list_comprehenshion(lst)
     f.squares_map(lst)
-        
+
+
 if __name__ == "__main__":
     main()
-    
